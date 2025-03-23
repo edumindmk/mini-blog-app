@@ -1,9 +1,11 @@
+import { useState } from 'react';
+
 import './App.css';
 import PostFrom from './components/PostForm/PostForm';
 import PostList from './components/PostList/PostList';
 
 function App() {
-  const blogs = [
+  const [blogs, setBlogs] = useState([
     {
       title: 'CNN speaks to Russia’s ‘merchant of death',
       description:
@@ -28,11 +30,15 @@ function App() {
       imageLink:
         'https://thumbs.dreamstime.com/b/news-woodn-dice-depicting-letters-bundle-small-newspapers-leaning-left-dice-34802664.jpg',
     },
-  ];
+  ]);
+
+  const addNewPost = (newPost) => {
+    setBlogs([...blogs, newPost]);
+  };
 
   return (
     <>
-      <PostFrom />
+      <PostFrom addNewPost={addNewPost} />
       <PostList blogs={blogs} />
     </>
   );

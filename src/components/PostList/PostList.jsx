@@ -3,7 +3,6 @@ import PostItem from '../PostItem/PostItem';
 import styles from './PostList.module.css';
 
 const PostList = (props) => {
-  console.log('props.blogs', props.blogs);
   return (
     <div className={styles.cardList}>
       {props.blogs.map((blog) => (
